@@ -1,23 +1,81 @@
-# 📸 Hackathon Demonstration Screenshots
+# Azure Implementation Screenshots
 
-This directory contains visual proof of deployment and failover execution for the AZ-104 Hackathon submission panel.
+This folder contains visual evidence of the Azure Site Recovery
+implementation and validation performed for the project.
 
-## Recommended Screenshots to Capture
+## 1. Protected Virtual Machines
 
-1. **`1-primary-infrastructure.png`**
-   - Azure Portal view of Resource Group `Contoso-App-Prod-RG` showing `Web-VM`, `DB-VM`, `VNet-Prod`, and `NSG-Prod-Web`.
+![Protected VMs](01-protected-vms.png)
 
-2. **`2-dr-infrastructure.png`**
-   - Azure Portal view of Resource Group `Contoso-App-DR-RG` showing `VNet-DR`, `Contoso-ASR-Vault`, `Contoso-ASR-AutoAccount`, and `Web-VM-DR-PIP`.
+The Azure Site Recovery protected items show three application
+workloads:
 
-3. **`3-asr-replication-healthy.png`**
-   - View of `Contoso-ASR-Vault` > **Replicated Items** showing `Web-VM` and `DB-VM` in **Healthy / Protected** state.
+- VM-WEB
+- VM-APP
+- VM-DB
 
-4. **`4-recovery-plan-groups.png`**
-   - View of `Contoso-App-Failover-Plan` showing **Group 1 (DB-VM)**, **Group 2 (Web-VM)**, and the **Post-Action PowerShell Runbook**.
+All three workloads are shown as `Protected` with `Normal`
+replication health.
 
-5. **`5-test-failover-success.png`**
-   - ASR Job execution history showing **Test Failover Completed Successfully** with RTO timer (~4.5 minutes).
+---
 
-6. **`6-dr-app-live.png`**
-   - Browser tab pointing to `http://<Web-VM-DR-PIP>` showing the active Disaster Recovery Web Portal!
+## 2. Recovery Plan Dependency Order
+
+![Recovery Plan Order](02-recovery-plan-order.png)
+
+The Recovery Plan is configured to recover the application tiers
+in dependency order:
+
+1. Database
+2. Application
+3. Web
+
+This ensures that dependent application services are started only
+after the required lower-level services are available.
+
+---
+
+## 3. Primary and Recovery Regions
+
+![Recovery Plan Regions](03-recovery-plan-regions.png)
+
+The configured Recovery Plan uses:
+
+- Primary region: Central India
+- Recovery region: India South Central
+
+---
+
+## 4. Test Failover
+
+![Test Failover](04-test-failover-succeeded.png)
+
+Azure Site Recovery Test Failover completed successfully.
+
+This validates that the configured recovery workflow can be
+executed in the secondary environment.
+
+---
+
+## 5. Azure Resources
+
+![Azure Resources](05-azure-resources.png)
+
+The Azure Resource Manager view shows the resources used by
+the disaster recovery implementation, including:
+
+- Virtual Machines
+- Virtual Networks
+- Network Security Groups
+- Disks
+- Storage
+- Recovery Services Vault
+
+---
+
+## 6. VM and Network Resources
+
+![VM and Network Resources](06-network-and-vm-resources.png)
+
+The project contains separate primary, DR and test networking
+resources together with the protected application workloads.
