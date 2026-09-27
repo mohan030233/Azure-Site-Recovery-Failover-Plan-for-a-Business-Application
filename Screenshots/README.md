@@ -5,7 +5,7 @@ implementation and validation performed for the project.
 
 ## 1. Protected Virtual Machines
 
-![Protected VMs](01-protected-vms.png)
+![Protected VMs](protected-vms.jpeg)
 
 The Azure Site Recovery protected items show three application
 workloads:
@@ -21,7 +21,7 @@ replication health.
 
 ## 2. Recovery Plan Dependency Order
 
-![Recovery Plan Order](02-recovery-plan-order.png)
+![Recovery Plan Order](recovery-plan-order.jpeg)
 
 The Recovery Plan is configured to recover the application tiers
 in dependency order:
@@ -37,7 +37,7 @@ after the required lower-level services are available.
 
 ## 3. Primary and Recovery Regions
 
-![Recovery Plan Regions](03-recovery-plan-regions.png)
+![Recovery Plan Regions](recovery-plan-regions.jpeg)
 
 The configured Recovery Plan uses:
 
@@ -48,7 +48,7 @@ The configured Recovery Plan uses:
 
 ## 4. Test Failover
 
-![Test Failover](04-test-failover-succeeded.png)
+![Test Failover](test-failover-succeeded.jpeg)
 
 Azure Site Recovery Test Failover completed successfully.
 
@@ -59,7 +59,7 @@ executed in the secondary environment.
 
 ## 5. Azure Resources
 
-![Azure Resources](05-azure-resources.png)
+![Azure Resources](azure-resources.jpeg)
 
 The Azure Resource Manager view shows the resources used by
 the disaster recovery implementation, including:
@@ -75,7 +75,7 @@ the disaster recovery implementation, including:
 
 ## 6. VM and Network Resources
 
-![VM and Network Resources](06-network-and-vm-resources.png)
+![VM and Network Resources](network-and-vm-resources.jpeg)
 
 The project contains separate primary, DR and test networking
 resources together with the protected application workloads.
