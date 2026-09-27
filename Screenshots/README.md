@@ -75,7 +75,7 @@ the disaster recovery implementation, including:
 
 ## 6. VM and Network Resources
 
-![VM and Network Resources](network-and-vm-resources.jpeg)
+![VM and Network Resources](vnet-and-network-resources.jpeg)
 
 The project contains separate primary, DR and test networking
 resources together with the protected application workloads.
